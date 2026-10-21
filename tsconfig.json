@@ -1,0 +1,13 @@
+{
+	"extends": "$app/tsconfig",
+	"compilerOptions": {
+		"strict": true,
+		// Runtime resolves #lib via package.json "imports"; mirror it here so
+		// TypeScript resolves extensionless module imports (e.g. #lib/content).
+		"paths": {
+			"#lib": ["./src/lib/index.ts"],
+			"#lib/*": ["./src/lib/*"]
+		}
+	},
+	"include": ["src", "vite.config.ts"]
+}
