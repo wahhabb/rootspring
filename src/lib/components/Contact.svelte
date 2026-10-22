@@ -17,8 +17,8 @@
 		<p class="eyebrow">Say hello</p>
 		<h2>Contact us</h2>
 		<p class="blurb">
-			We’d love to hear from you. For questions about our books or about Rootspring Press,
-			send us an email.
+			We’d love to hear from you. For questions about our new book or about Rootspring Press,
+			or to contact Wahhab Baldwin, send us an email.
 		</p>
 
 		<a class="btn btn-primary email" {href}>
