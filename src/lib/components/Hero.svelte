@@ -14,7 +14,7 @@
 		<h1 use:reveal={{ delay: 120 }}>
 			Rootspring <span class="accent">Press</span>
 		</h1>
-		<p class="lede" use:reveal={{ delay: 200 }}>{press.tagline}</p>
+		<p class="lede" use:reveal={{ delay: 200 }}>{@html press.tagline}</p>
 		<p class="intro" use:reveal={{ delay: 260 }}>{press.intro}</p>
 
 		<div class="cta-row" use:reveal={{ delay: 320 }}>

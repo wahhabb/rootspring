@@ -8,7 +8,7 @@
 	<div class="container">
 		<header class="head" use:reveal>
 			<p class="eyebrow">Our New Book</p>
-			<h2>{book.title}</h2>
+			<h2>{@html book.title}</h2>
 			<p class="subtitle">{book.subtitle}</p>
 			<p class="byline">by {book.author}</p>
 		</header>

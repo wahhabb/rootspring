@@ -10,14 +10,14 @@ export const nav: NavItem[] = [
 
 export const press = {
 	name: 'Rootspring Press',
-	tagline: 'A tiny, new publisher rooted in Portland, Oregon.',
+	tagline: `A tiny, new publisher rooted in Portland,&nbsp;Oregon.`,
 	intro:
 		'Rootspring Press is a tiny, new publisher established primarily to publish the works of Wahhab and Kay Baldwin and their friends. We are unable to accept unsolicited manuscripts.',
 	location: 'Portland, OR'
 };
 
 export const book = {
-	title: 'From Climate Crisis to Kinship Culture',
+	title: `From Climate Crisis to Kinship&nbsp;Culture`,
 	subtitle: 'A Hopeful, Practical Guide to What You Can Do',
 	author: 'Wahhab Baldwin',
 	coverAlt:
