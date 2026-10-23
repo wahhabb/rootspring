@@ -23,7 +23,7 @@ export const book = {
 	coverAlt:
 		'Book cover: towering old-growth forest with a small figure gazing up, titled “From Climate Crisis to Kinship Culture” by Wahhab Baldwin.',
 	amazonUrl:
-		'https://www.amazon.com/Climate-Crisis-Kinship-Culture-Practical/dp/B0HMNNCP92',
+		'https://link.amazon/B0fboaH4o'
 	// Lead-in shown first, then the body paragraphs.
 	lede: 'A hopeful, practical guide for anyone who cares about the future and is tired of feeling helpless about it.',
 	body: [
