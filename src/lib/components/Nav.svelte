@@ -1,41 +1,57 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { page } from '$app/state';
+	import { afterNavigate } from '$app/navigation';
 	import { nav, press } from '#lib/content';
 	import logo from '#lib/assets/logo.png';
 
-	let active = $state('home');
+	// Scroll-spy state (only meaningful on the home page).
+	let spySection = $state('home');
 	let scrolled = $state(false);
+	let observer: IntersectionObserver | null = null;
 
-	onMount(() => {
+	// The New Book page is its own route; everything else lives on home.
+	const onBookPage = $derived(page.url.pathname === '/book');
+	const active = $derived(onBookPage ? 'book' : spySection);
+
+	// Rebuild the observer for whatever sections exist on the current page.
+	function setupSpy() {
+		observer?.disconnect();
+		if (typeof IntersectionObserver === 'undefined') return;
 		const sections = nav
 			.map((n) => document.getElementById(n.id))
 			.filter((el): el is HTMLElement => el !== null);
-
-		const observer = new IntersectionObserver(
+		observer = new IntersectionObserver(
 			(entries) => {
 				for (const entry of entries) {
-					if (entry.isIntersecting) active = entry.target.id;
+					if (entry.isIntersecting) spySection = entry.target.id;
 				}
 			},
 			// A band across the upper-middle of the viewport decides the active section.
 			{ rootMargin: '-45% 0px -50% 0px', threshold: 0 }
 		);
-		sections.forEach((s) => observer.observe(s));
+		sections.forEach((s) => observer!.observe(s));
+	}
 
+	onMount(() => {
 		const onScroll = () => (scrolled = window.scrollY > 8);
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });
+		setupSpy();
 
 		return () => {
-			observer.disconnect();
+			observer?.disconnect();
 			window.removeEventListener('scroll', onScroll);
 		};
 	});
+
+	// Re-scan sections after client-side navigation between pages.
+	afterNavigate(() => setupSpy());
 </script>
 
 <header class="nav" class:scrolled>
 	<nav class="nav-inner container" aria-label="Primary">
-		<a class="brand" href="#home" aria-label="{press.name} — home">
+		<a class="brand" href="/#home" aria-label="{press.name} — home">
 			<img src={logo} alt="" width="40" height="40" />
 			<span>Rootspring<span class="brand-press"> Press</span></span>
 		</a>
@@ -44,9 +60,9 @@
 			{#each nav as item (item.id)}
 				<li>
 					<a
-						href="#{item.id}"
+						href={item.href}
 						class:active={active === item.id}
-						aria-current={active === item.id ? 'true' : undefined}
+						aria-current={active === item.id ? 'page' : undefined}
 					>
 						{item.label}
 					</a>

@@ -47,6 +47,15 @@
 							<span class="buy-card-label">Buy on Amazon</span>
 							<span class="buy-card-note">Ships directly to your door →</span>
 						</a>
+						<a
+							class="buy-card"
+							href={book.ingramUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<span class="buy-card-label">Buy from Ingram/Spark</span>
+							<span class="buy-card-note">If you’re not a fan of Amazon →</span>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -55,8 +64,8 @@
 		<div class="blurbs">
 			{#each blurbs as b, i (i)}
 				<figure class="blurb" use:reveal={{ delay: i * 60 }}>
-					<blockquote>{b.quote}</blockquote>
-					<figcaption>— {b.source}</figcaption>
+					<blockquote>{@html b.quote}</blockquote>
+					<figcaption>— {@html b.source}</figcaption>
 				</figure>
 			{/each}
 		</div>
@@ -135,7 +144,7 @@
 	}
 	.buy-grid {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
 		gap: 1rem;
 	}
 	.buy-card {

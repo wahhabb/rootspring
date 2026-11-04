@@ -1,11 +1,14 @@
 // Editable site copy, kept as typed data so it's easy to update later.
 
-export type NavItem = { id: string; label: string };
+// `id` matches a section element for scroll-spy on the home page.
+// `href` is where the link actually navigates (New Book is its own route).
+// `spa` marks in-page anchors on the home page.
+export type NavItem = { id: string; label: string; href: string; spa?: boolean };
 
 export const nav: NavItem[] = [
-	{ id: 'home', label: 'Home' },
-	{ id: 'book', label: 'New Book' },
-	{ id: 'contact', label: 'Contact' }
+	{ id: 'home', label: 'Home', href: '/#home', spa: true },
+	{ id: 'book', label: 'New Book', href: '/book' },
+	{ id: 'contact', label: 'Contact', href: '/#contact', spa: true }
 ];
 
 export const press = {
@@ -24,6 +27,8 @@ export const book = {
 		'Book cover: towering old-growth forest with a small figure gazing up, titled “From Climate Crisis to Kinship Culture” by Wahhab Baldwin.',
 	amazonUrl:
 		'https://link.amazon/B0fboaH4o',
+	ingramUrl:
+		'https://shop.ingramspark.com/b/084?params=QiqTbllcxPQwupXBeY3JmIjdFsETLCN7eQZG6OCUuMV',
 	// Lead-in shown first, then the body paragraphs.
 	lede: 'A hopeful, practical guide for anyone who cares about the future and is tired of feeling helpless about it.',
 	body: [
@@ -40,13 +45,13 @@ export type Blurb = { quote: string; source: string };
 export const blurbs: Blurb[] = [
 	{
 		quote:
-			'Confronting climate crisis, civilization collapse, and finding a path to walk in these broken times, From Climate Crisis to Kinship Culture takes us back to what is simple and sustaining, the patterns of kinship that connect us together with each other and the Earth. Here is wisdom for our hands and our heart, and the clear recognition of the primacy of love, how it permeates everything. Allow this timely book to help you on your journey, knowing how “Every act of love toward Earth and her beings, both human and more-than-human, helps heal the whole.”',
+			'Confronting climate crisis, civilization collapse, and finding a path to walk in these broken times, <i>From Climate Crisis to Kinship Culture</i> takes us back to what is simple and sustaining, the patterns of kinship that connect us together with each other and the Earth. Here is wisdom for our hands and our heart, and the clear recognition of the primacy of love, how it permeates everything. Allow this timely book to help you on your journey, knowing how “Every act of love toward Earth and her beings, both human and more-than-human, helps heal the whole.”',
 		source: 'Llewellyn Vaughan-Lee, ed. Spiritual Ecology: The Cry of the Earth'
 	},
 	{
 		quote:
 			'Wahhab Baldwin knows what too few people know: the Climate Crisis can’t be resolved by technology or politics or economics alone. It requires a deep shift in the human spirit, and that shift will lead to better, deeper, more beautiful and meaningful lives. What could be more important?',
-		source: 'Brian D. McLaren, author of Life After Doom and The Last Voyage'
+		source: 'Brian D. McLaren, author of Life After Doom and The Last Voyage	'
 	}
 ];
 
