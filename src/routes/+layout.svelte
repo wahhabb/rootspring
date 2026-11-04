@@ -8,7 +8,10 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<!-- Snail favicon: SVG for modern browsers, PNG fallbacks, apple-touch for iOS -->
+	<link rel="icon" type="image/svg+xml" href={favicon} />
+	<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 </svelte:head>
 
 <a class="skip-link" href="#home">Skip to content</a>
