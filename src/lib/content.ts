@@ -21,7 +21,7 @@ export const press = {
 
 export const book = {
 	title: `From Climate Crisis to Kinship&nbsp;Culture`,
-	subtitle: 'A Hopeful, Practical Guide to What You Can Do',
+	subtitle: 'A Hopeful, Practical Guide to What You&nbsp;Can&nbsp;Do',
 	author: 'Wahhab Baldwin',
 	coverAlt:
 		'Book cover: towering old-growth forest with a small figure gazing up, titled “From Climate Crisis to Kinship Culture” by Wahhab Baldwin.',

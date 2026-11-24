@@ -6,7 +6,7 @@
 	// Plain-text versions for metadata (strip the &nbsp; used for on-page wrapping).
 	const plainTitle = book.title.replace(/&nbsp;/g, ' ');
 	const title = `${plainTitle} — ${press.name}`;
-	const description = `${plainTitle}: ${book.subtitle}, by ${book.author}. ${book.lede}`;
+	const description = `${plainTitle}: ${@html book.subtitle}, by ${book.author}. ${book.lede}`;
 </script>
 
 <svelte:head>
